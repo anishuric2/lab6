@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-#
+
 
 class AbstractPet(ABC):
     def __init__(self, name, sound, food):
@@ -19,6 +19,8 @@ class AbstractPet(ABC):
     def food(self):
         return self.__food
 
+    #Abstract Methods
+
     @abstractmethod
     def make_sound(self):
         pass
@@ -27,16 +29,18 @@ class AbstractPet(ABC):
     def favorite_food(self):
         pass
 
-    # @abstractmethod
-    # def unique_method(self):
-    #     pass
-    #
-    # @abstractmethod
-    # def another_unique_method(self):
-    #     pass
+    @abstractmethod
+    def perform_trick(self):
+        pass
+
+    @abstractmethod
+    def sleep(self):
+        pass
+
 
     def __str__(self):
-        return f"{self.__class__.__name__} {self.name} says {self.sound} and likes to eat {self.food}"
+        return f"{self.name} says {self.sound} and likes to eat {self.food}"
+
 
 class Dog(AbstractPet):
     def make_sound(self):
@@ -45,11 +49,14 @@ class Dog(AbstractPet):
     def favorite_food(self):
         return "Bones"
 
-    # def unique_method(self):
-    #     print("Dog-specific method")
+    def perform_trick(self):
+        print("Dog performs a trick: Sit")
 
-    # def another_unique_method(self):
-    #     print("Another dog-specific method")
+    def sleep(self):
+        print("Dog is sleeping")
+
+    def age(self):
+        print("Dog is 3 years old")
 
 
 class Cat(AbstractPet):
@@ -59,11 +66,12 @@ class Cat(AbstractPet):
     def favorite_food(self):
         return "Fish"
 
-    def unique_method(self):
-        print("Cat-specific method")
+    def perform_trick(self):
+        print("Cat performs a trick: Roll over")
 
-    # def another_unique_method(self):
-    #     print("Another cat-specific method")
+    def sleep(self):
+        print("Cat is napping")
+
 
 
 class Bird(AbstractPet):
@@ -81,29 +89,41 @@ class Bird(AbstractPet):
     def favorite_food(self):
         return "Seeds"
 
-    def unique_method(self):
-        print("Bird-specific method")
+    def perform_trick(self):
+        print("Bird performs a trick: Whistle")
 
-    # def another_unique_method(self):
-    #     print("Another bird-specific method")
+    def sleep(self):
+        print("Bird is resting")
+
 
 
 # Testing the classes
 #________dog______________
+print("----Dog----")
 dog = Dog("Buddy", "Woof", "Bones")
 print(dog)
 dog.make_sound()
+dog.perform_trick()
+dog.sleep()
+dog.age()
 
+print("\n\n----Cat----")
 
 #________cat______________
 cat = Cat("Whiskers", "Meow", "Fish")
 print(cat)
 cat.make_sound()
+cat.perform_trick()
+cat.sleep()
 
 
+print("\n\n----Bird----")
 #________bird______________
 bird = Bird("Robin", "Tweet", "Seeds", "Red")
 print(bird)
 bird.make_sound()
 print(f"{bird.name} is {bird.color}")
 bird.favorite_food()
+bird.perform_trick()
+bird.sleep()
+
