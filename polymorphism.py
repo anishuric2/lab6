@@ -55,8 +55,6 @@ class Dog(AbstractPet):
     def sleep(self):
         print("Dog is sleeping")
 
-    def age(self):
-        print("Dog is 3 years old")
 
 
 class Cat(AbstractPet):
@@ -105,7 +103,7 @@ print(dog)
 dog.make_sound()
 dog.perform_trick()
 dog.sleep()
-dog.age()
+
 
 print("\n\n----Cat----")
 
