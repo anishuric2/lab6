@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-
+#
 
 class AbstractPet(ABC):
     def __init__(self, name, sound, food):
@@ -37,7 +37,6 @@ class AbstractPet(ABC):
 
     def __str__(self):
         return f"{self.__class__.__name__} {self.name} says {self.sound} and likes to eat {self.food}"
-
 
 class Dog(AbstractPet):
     def make_sound(self):
